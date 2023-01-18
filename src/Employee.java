@@ -1,12 +1,12 @@
 public class Employee {
     private String name;
     private int department;
-    private int salary;
+    private double salary;
 
     private static int counter;
     private int id;
 
-    public Employee(String name, int department, int salary) {
+    public Employee(String name, int department, double salary) {
         this.name = name;
         this.department = department;
         this.salary = salary;
@@ -26,7 +26,7 @@ public class Employee {
         return department;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -38,7 +38,7 @@ public class Employee {
         this.department = department;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -51,22 +51,24 @@ public class Employee {
     }
 
     public static void calculateAmountSalaries() {
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < counter; i++) {
             sum += Main.employees[i].salary;
         }
-        System.out.println("Сумма затрат на зарплаты в месяц: " + sum);
+        System.out.printf("Сумма затрат на зарплаты в месяц: %.2f \n" ,sum);
     }
 
     public static void calculateAverageSalaries() {
-        int sum = 0;
-        int averageSum = 0;
+        double sum = 0;
+        double averageSum = 0;
         for (int i = 0; i < counter; i++) {
             sum += Main.employees[i].salary;
         }
         averageSum = sum / counter;
-        System.out.println("Средняя зарплата за месяц: " + averageSum);
+        System.out.printf("Средняя зарплата за месяц: %.2f \n" , averageSum);
+
     }
+
 
     public static void getNamesEmployees() {
 
@@ -77,7 +79,7 @@ public class Employee {
     }
 
     public static void findEmployeeMinSalary() {
-        int min = Main.employees[0].getSalary();
+        double min = Main.employees[0].getSalary();
         String minEmployee = Main.employees[0].getName();
         for (int i = 1; i < counter; i++) {
             Employee employee = Main.employees[i];
@@ -94,7 +96,7 @@ public class Employee {
     }
 
     public static void findEmployeeMaxSalary() {
-        int max = Main.employees[0].getSalary();
+        double max = Main.employees[0].getSalary();
         String maxEmployee = Main.employees[0].getName();
         for (int i = 1; i < counter; i++) {
             Employee employee = Main.employees[i];
