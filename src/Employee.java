@@ -1,4 +1,5 @@
 public class Employee {
+
     private String name;
     private int department;
     private double salary;
@@ -10,8 +11,7 @@ public class Employee {
         this.name = name;
         this.department = department;
         this.salary = salary;
-        counter++;
-        id = counter;
+        id = counter++;
     }
 
     public static int getCounter() {
@@ -53,7 +53,7 @@ public class Employee {
     public static void calculateAmountSalaries() {
         double sum = 0;
         for (int i = 0; i < counter; i++) {
-            sum += Main.employees[i].salary;
+            sum += Main.employees[i].getSalary();
         }
         System.out.printf("Сумма затрат на зарплаты в месяц: %.2f \n" ,sum);
     }
@@ -61,15 +61,14 @@ public class Employee {
     public static void calculateAverageSalaries() {
         double sum = 0;
         double averageSum = 0;
+        int k=0;
         for (int i = 0; i < counter; i++) {
-            sum += Main.employees[i].salary;
+            k++;
+            sum += Main.employees[i].getSalary();
         }
-        averageSum = sum / counter;
+        averageSum = sum / k;
         System.out.printf("Средняя зарплата за месяц: %.2f \n" , averageSum);
-
     }
-
-
     public static void getNamesEmployees() {
 
         for (int i = 0; i < counter; i++) {
@@ -77,7 +76,6 @@ public class Employee {
             System.out.println(employee.getName());
         }
     }
-
     public static void findEmployeeMinSalary() {
         double min = Main.employees[0].getSalary();
         String minEmployee = Main.employees[0].getName();
