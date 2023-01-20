@@ -19,7 +19,7 @@ public class Main {
         Employee.calculateAverageSalaries(employees);
         Employee.getNamesEmployees(employees);
         Employee.increaseSalary(employees, 10);
-        Employee.findEmployeeMinSalaryNew(employees, 2);
+        Employee.findEmployeeMinSalaryNew(employees, 5);
         Employee.findEmployeeMaxSalaryNew(employees, 2);
         Employee.calculateAmountSalariesNew(employees, 5);
         Employee.calculateAverageSalariesNew(employees, 4);

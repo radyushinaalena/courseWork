@@ -121,16 +121,8 @@ public class Employee {
 
     //2a. Повышенная сложность. Найти сотрудника с минимальной зарплатой в отделе
     public static void findEmployeeMinSalaryNew(Employee[] employees, int department) {
-        double min = 0;
+        double min = Integer.MAX_VALUE;
         String minEmployee = null;
-        for (int i = 0; i < counter; i++) {
-            Employee employee = employees[i];
-            if (employee.getDepartment() == department) {
-                min = employee.getSalary();
-                minEmployee = employee.getName();
-                break;
-            }
-        }
 
         for (int n = 0; n < counter; n++) {
             Employee employee = employees[n];
@@ -144,7 +136,7 @@ public class Employee {
 
     //2b.Повышенная сложность. Найти сотрудника с максимальной зарплатой в отделе
     public static void findEmployeeMaxSalaryNew(Employee[] employees, int department) {
-        double max = -1;
+        double max = Integer.MIN_VALUE;
         String maxEmployee = null;
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
@@ -181,8 +173,8 @@ public class Employee {
                 k++;
                 sum += employees[i].getSalary();
             }
-            averageSum = sum / k;
         }
+        averageSum = sum / k;
         System.out.printf("Средняя зарплата за месяц в " + department + " отделе: %.2f \n", averageSum);
 
     }
@@ -205,7 +197,7 @@ public class Employee {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
             if (employee.getDepartment() == department) {
-                System.out.println("ФИО: " + employee.getName() + " з/п: " + employee.getSalary());
+                System.out.printf("ФИО: " + employee.getName() + " з/п: %.2f \n", employee.getSalary());
             }
         }
     }
@@ -215,23 +207,24 @@ public class Employee {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
             if (employee.getSalary() < x) {
-                System.out.println("ID: " + employee.getId() + " ФИО: " + employee.getName() + " з/п: " + employee.getSalary());
+                System.out.printf("ID: " + employee.getId() + " ФИО: " + employee.getName() + " з/п: %.2f \n", employee.getSalary());
             }
-            }
-            }
+        }
+    }
+
     // Все сотрудники с зарплатой , числа
     public static void findSalaryLess(Employee[] employees, double x) {
         for (int i = 0; i < counter; i++) {
             Employee employee = employees[i];
             if (employee.getSalary() > x) {
-                System.out.println("ID: " + employee.getId() + " ФИО: " + employee.getName() + " з/п: " + employee.getSalary());
+                System.out.printf("ID: " + employee.getId() + " ФИО: " + employee.getName() + " з/п: %.2f \n", employee.getSalary());
             }
         }
     }
 
-            @Override
-            public String toString () {
-                return "ФИО: " + name + ", отдел: " + department + ", з/п: " + salary;
-            }
+    @Override
+    public String toString() {
+        return "ФИО: " + name + ", отдел: " + department + ", з/п: " + salary;
+    }
 
-        }
+}
